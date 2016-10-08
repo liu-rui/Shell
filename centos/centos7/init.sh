@@ -4,7 +4,7 @@ if [[ "$(whoami)" != "root" ]]; then
     exit 1
 fi
 
-echo -e "\033[31m 这个是centos7系统初始化脚本，请慎重运行！ press ctrl+C to cancel \033[0m"
+echo -e "\033[31m 杩欎釜鏄痗entos7绯荤粺鍒濆鍖栬剼鏈紝璇锋厧閲嶈繍琛岋紒 press ctrl+C to cancel \033[0m"
 sleep 5
 
 
@@ -90,7 +90,7 @@ echo "sysctl set OK!!"
 
 #disable selinux
 selinux_config(){
-sed -i '/SELINUX/s/enforcing/desabled/' /etc/selinux/config
+sed -i '/SELINUX/s/enforcing/disabled/' /etc/selinux/config
 setenforce 0
 }
 

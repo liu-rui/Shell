@@ -49,7 +49,7 @@ systemctl start crond
 
 #set sysctl
 sysctl_config(){
-cp /etc/sysctl.conf /et/sysctl.conf.bak
+cp /etc/sysctl.conf /etc/sysctl.conf.bak
 cat > /etc/sysctl.conf << EOF
  net.ipv4.ip_forward = 0
  net.ipv4.conf.default.rp_filter = 1

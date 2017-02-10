@@ -15,6 +15,9 @@ init_go_environment(){
 
 }
 
+init_nodejs_environment(){
+
+}
 
 
 main(){
@@ -28,6 +31,7 @@ main(){
     apt_update
     init_python_environment
     init_go_environment
+    init_nodejs_environment
 }
 
 main

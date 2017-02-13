@@ -46,11 +46,7 @@ init_python_environment(){
     python -m  pip  install pylint
     python -m  pip  install autopep8
     pip install jinja2
-}
-
-init_go_environment(){
-
-}
+} 
 
 init_nodejs_environment(){
     npm config set registry https://registry.npm.taobao.org
@@ -66,11 +62,11 @@ main(){
     sleep 5
 
     apt_update
-    init_base_environment
-    init_vim_environment
-    init_python_environment
-    init_go_environment
-    init_nodejs_environment
+    #init_base_environment
+    #init_vim_environment
+    #init_python_environment
+    #init_go_environment
+    #init_nodejs_environment
 }
 
 main

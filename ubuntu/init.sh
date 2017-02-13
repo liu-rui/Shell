@@ -62,7 +62,7 @@ main(){
     sleep 5
 
     apt_update
-    #init_base_environment
+    init_base_environment
     #init_vim_environment
     #init_python_environment
     #init_go_environment

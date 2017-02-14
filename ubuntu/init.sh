@@ -10,11 +10,11 @@ init_base_environment(){
     cd Shell/ubuntu
     #搜狗输入法
     wget -O sogou.deb  --tries 4  http://pinyin.sogou.com/linux/download.php?f=linux&bit=64 
-    dpkg  -i  sogou.deb
+    sudo dpkg  -i  sogou.deb
 }
 
 init_vim_environment(){
-    sudo apt-get install ctags xclip vim-gnome astyle python-setuptools
+    sudo apt-get -y install ctags xclip vim-gnome astyle python-setuptools
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim  
     cp base/vim.sh ~/.vimrc
     vim +PluginInstall +qall
@@ -57,9 +57,9 @@ main(){
     echo -e "\033[31m 这个是ubuntu开发环境初始化脚本，请慎重运行！ press ctrl+C to cancel \033[0m"
     sleep 5
 
-    #apt_update
+    apt_update
     init_base_environment
-    #init_vim_environment
+    init_vim_environment
     #init_python_environment
     #init_go_environment
     #init_nodejs_environment

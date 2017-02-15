@@ -103,8 +103,8 @@ set wildmenu
 
 " 配色方案
 set background=dark
-colorscheme solarized
-"colorscheme molokai
+"colorscheme solarized
+colorscheme molokai
 "colorscheme phd
 
 

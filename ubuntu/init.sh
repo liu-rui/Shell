@@ -79,9 +79,11 @@ init_go_environment(){
     go install -v golang.org/x/tools/cmd/gorename
     go install -v github.com/tpng/gopkgs
     go install -v github.com/newhook/go-symbols
-    go install -v golang.org/x/tools/cmd/guru
-    go install -v github.com/derekparker/delve
+    go install -v golang.org/x/tools/cmd/guru    
     go install -v github.com/cweill/gotests/...
+    cd $GOPATH/src/github.com/derekparker/delve
+    make install
+    cd -
     code --install-extension lukehoban.Go    
 
     #安装go常用库

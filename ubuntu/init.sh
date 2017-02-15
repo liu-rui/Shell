@@ -25,6 +25,8 @@ init_vscode_environment(){
     dpkg  -i  code.deb
     mkdir -p ~/.config/Code/User    
     cp vscode/*  ~/.config/Code/User/
+    
+    /usr/share/code/code --install-extension robertohuertasm.vscode-icons
 }
 
 init_python_environment(){
@@ -46,10 +48,34 @@ init_python_environment(){
     python -m  pip  install pylint
     python -m  pip  install autopep8
     pip install jinja2
+
+    /usr/share/code/code --install-extension donjayamanne.python
 } 
 
 init_nodejs_environment(){
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+    source .bashrc
+    nvm  install node
+    nvm  use node
     npm config set registry https://registry.npm.taobao.org
+    npm install gulp --global
+
+    /usr/share/code/code --install-extension abusaidm.html-snippets
+    /usr/share/code/code --install-extension dbaeumer.vscode-eslint
+    /usr/share/code/code --install-extension msjsdiag.debugger-for-chrome
+}
+
+init_go_environment(){
+    sudo  apt-get -y install golang-go golang-golang-x-tools        
+    echo 'export GOPATH="/data/code/go"' >> ~/.bashrc
+    echo 'PATH="$GOPATH/bin:$PATH"' >> ~/.bashrc
+    source ~/.bashrc
+    mkdir -p  /data/code/go
+ 
+    go get github.com/astaxie/beego
+    go get github.com/beego/bee
+
+    /usr/share/code/code --install-extension lukehoban.Go    
 }
 
 

@@ -55,35 +55,38 @@ init_python_environment(){
     #安装python常用库
     pip install jinja2
     pip install nose
+    pip install flask
 } 
 
 init_go_environment(){
     sudo  apt-get -y install golang-go golang-golang-x-tools        
-    mkdir -p  /data/code/go
+    sudo mkdir -p /data
+    user="$(whoami)"
+    c="sudo chown ${user}:${user} /data"
+    eval "${c}"    
+    mkdir -p  /data/code/go/src
     echo 'export GOPATH="/data/code/go"' >> ~/.bashrc
     echo 'PATH="$GOPATH/bin:$PATH"' >> ~/.bashrc
     sh ~/.bashrc   
     
     #为vscode配置go环境
-    tar zxf go/go_package.tar.gz  -C "$GOPATH/src/"    
-    go install github.com/nsf/gocode
-    go install github.com/rogpeppe/godef
-    go install github.com/zmb3/gogetdoc
-    go install github.com/golang/lint/golint
-    go install github.com/lukehoban/go-outline
-    go install sourcegraph.com/sqs/goreturns
-    go install golang.org/x/tools/cmd/gorename
-    go install github.com/tpng/gopkgs
-    go install github.com/newhook/go-symbols
-    go install golang.org/x/tools/cmd/guru
-    go install github.com/cweill/gotests/...
-    
+    tar zxvf go/go_package.tar.gz  -C "$GOPATH/src/"    
+    go install -v github.com/nsf/gocode
+    go install -v github.com/rogpeppe/godef
+    go install -v github.com/zmb3/gogetdoc
+    go install -v github.com/golang/lint/golint
+    go install -v github.com/lukehoban/go-outline
+    go install -v sourcegraph.com/sqs/goreturns
+    go install -v golang.org/x/tools/cmd/gorename
+    go install -v github.com/tpng/gopkgs
+    go install -v github.com/newhook/go-symbols
+    go install -v golang.org/x/tools/cmd/guru
+    go install -v github.com/cweill/gotests/...
     code --install-extension lukehoban.Go    
 
     #安装go常用库
     go get -u -v github.com/astaxie/beego
     go get -u -v github.com/beego/bee
-
 }
 
 init_nodejs_environment(){

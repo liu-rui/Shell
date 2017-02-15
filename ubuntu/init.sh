@@ -62,8 +62,7 @@ init_go_environment(){
     sudo  apt-get -y install golang-go golang-golang-x-tools        
     sudo mkdir -p /data
     user="$(whoami)"
-    c="sudo chown ${user}:${user} /data"
-    eval "${c}"    
+    eval "sudo chown ${user}:${user} /data"
     mkdir -p  /data/code/go/src
     echo 'export GOPATH="/data/code/go"' >> ~/.bashrc
     echo 'PATH="$GOPATH/bin:$PATH"' >> ~/.bashrc
@@ -81,6 +80,7 @@ init_go_environment(){
     go install -v github.com/tpng/gopkgs
     go install -v github.com/newhook/go-symbols
     go install -v golang.org/x/tools/cmd/guru
+    go install -v github.com/derekparker/delve
     go install -v github.com/cweill/gotests/...
     code --install-extension lukehoban.Go    
 

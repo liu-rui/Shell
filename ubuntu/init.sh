@@ -9,8 +9,8 @@ init_base_environment(){
     git clone https://github.com/liu-rui/Shell.git
     cd Shell/ubuntu
     #搜狗输入法
-    wget -O sogou.deb  --tries 4  http://pinyin.sogou.com/linux/download.php?f=linux&bit=64 
-    sudo dpkg  -i  sogou.deb
+    #wget -O sogou.deb  --tries 4  http://pinyin.sogou.com/linux/download.php?f=linux&bit=64 
+    #sudo dpkg  -i  sogou.deb
 }
 
 init_vim_environment(){
@@ -21,7 +21,7 @@ init_vim_environment(){
 }
 
 init_vscode_environment(){    
-    wget -O code.deb  --tries 4  https://go.microsoft.com/fwlink/?LinkID=760868
+    #wget -O code.deb  --tries 4  https://go.microsoft.com/fwlink/?LinkID=760868
     dpkg  -i  code.deb
     mkdir -p ~/.config/Code/User    
     cp vscode/*  ~/.config/Code/User/

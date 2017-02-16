@@ -58,6 +58,10 @@ init_python_environment(){
     pip install flask
     pip install sqlalchemy
     pip install cookiecutter
+
+    pip install thefuck
+    echo 'eval "$(thefuck --alias fuck)"'  >> ~/.bashrc
+    sh ~/.bashrc
 } 
 
 init_go_environment(){

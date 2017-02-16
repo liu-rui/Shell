@@ -56,6 +56,8 @@ init_python_environment(){
     pip install jinja2
     pip install nose
     pip install flask
+    pip install sqlalchemy
+    pip install cookiecutter
 } 
 
 init_go_environment(){

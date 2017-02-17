@@ -72,7 +72,7 @@ init_go_environment(){
     mkdir -p  /data/code/go/src
     echo 'export GOPATH="/data/code/go"' >> ~/.bashrc
     echo 'PATH="$GOPATH/bin:$PATH"' >> ~/.bashrc
-    sh ~/.bashrc   
+    sh ~/.bashrc       
     
     #为vscode配置go环境
     tar zxvf go/go_package.tar.gz  -C "$GOPATH/src/"    
@@ -110,6 +110,24 @@ init_nodejs_environment(){
     code --install-extension msjsdiag.debugger-for-chrome
 }
 
+init_java_environment(){
+    #安装maven
+    wget -O maven.tar.gz  --tries 4  http://apache.fayea.com/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+    tar -C ~/.maven -zxvf apache-maven-3.3.9-bin.tar.gz
+    echo 'export JAVA_HOME="$HOME/software/jdk1.8.0_121"' >> ~/.bashrc
+    echo 'PATH="$JAVA_HOME/bin:$PATH"' >> ~/.bashrc
+    echo 'export JRE_HOME="$JAVA_HOME/jre"' >> ~/.bashrc
+    echo 'PATH="$JRE_HOME/bin:$PATH"' >> ~/.bashrc
+
+    echo 'export M2_HOME="$HOME/.maven/apache-maven-3.3.9"' >> ~/.bashrc
+    echo 'PATH="$M2_HOME/bin:$PATH"' >> ~/.bashrc
+    echo 'export MAVEN_OPTS="-Xms128m –Xmx512m "' >> ~/.bashrc
+    sh ~/.bashrc 
+    cp java/maven.config.xml $M2_HOME/config/settings.xml
+    
+    echo 'export CATALINA_HOME="$HOME/software/apache-tomcat-8.5.11"' >> ~/.bashrc
+    sh ~/.bashrc 
+}
 
 main(){
     echo -e "\033[31m 这个是ubuntu开发环境初始化脚本，请慎重运行！ press ctrl+C to cancel \033[0m"
@@ -122,6 +140,7 @@ main(){
     init_python_environment
     init_go_environment
     init_nodejs_environment
+    init_java_environment
 }
 
 main

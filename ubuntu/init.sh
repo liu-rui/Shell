@@ -13,6 +13,11 @@ init_base_environment(){
     #搜狗输入法
     wget -O sogou.deb  --tries 4  http://pinyin.sogou.com/linux/download.php?f=linux&bit=64 
     sudo dpkg  -i  sogou.deb
+
+    #mariadb
+    sudo apt-get -y install mariadb-server  mysql-workbench
+    sudo systemctl disable mysql
+    
 }
 
 init_vim_environment(){

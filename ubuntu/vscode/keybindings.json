@@ -9,5 +9,13 @@
         "key": "shift+alt+up",
         "command": "editor.action.copyLinesUpAction",
         "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "workbench.action.closeActiveEditor"
+    },
+    {
+        "command": "editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
     }
 ]

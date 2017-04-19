@@ -116,23 +116,53 @@ init_nodejs_environment(){
 }
 
 init_java_environment(){
-    #安装maven
-    wget -O maven.tar.gz  --tries 4  http://apache.fayea.com/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
-    tar -C ~/.maven -zxvf apache-maven-3.3.9-bin.tar.gz
+    #配置JDK
     echo 'export JAVA_HOME="$HOME/software/jdk1.8.0_121"' >> ~/.bashrc
     echo 'PATH="$JAVA_HOME/bin:$PATH"' >> ~/.bashrc
     echo 'export JRE_HOME="$JAVA_HOME/jre"' >> ~/.bashrc
     echo 'PATH="$JRE_HOME/bin:$PATH"' >> ~/.bashrc
+    sh ~/.bashrc 
 
+    #安装maven
+    wget -O maven.tar.gz  --tries 4  http://apache.fayea.com/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+    tar -C ~/.maven -zxvf apache-maven-3.3.9-bin.tar.gz
     echo 'export M2_HOME="$HOME/.maven/apache-maven-3.3.9"' >> ~/.bashrc
     echo 'PATH="$M2_HOME/bin:$PATH"' >> ~/.bashrc
     echo 'export MAVEN_OPTS="-Xms128m –Xmx512m "' >> ~/.bashrc
     sh ~/.bashrc 
     cp java/maven.config.xml $M2_HOME/config/settings.xml
-    
+    #配置maven创建项目时使用本地配置达到加快创建效果
+    mkdir -p $HOME/.m2
+    wget -O $HOME/.m2/archetype-catalog.xml  --tries 4 http://repo1.maven.org/maven2/archetype-catalog.xml
+
+    #配置tomcat
     echo 'export CATALINA_HOME="$HOME/software/apache-tomcat-8.5.11"' >> ~/.bashrc
     sh ~/.bashrc 
 }
+
+
+init_mono_environment(){
+    mkdir  -p /data/software
+    cd /data/software    
+    sudo add-apt-repository ppa:alexlarsson/flatpak    
+    sudo apt update
+    sudo apt install  -y flatpak
+    flatpak install --user --from https://download.mono-project.com/repo/monodevelop.flatpakref    
+    #配置asp.net运行环境
+    # sudo apt-get install -y  libtool-bin
+    # wget -O xsp.tar.gz  --tries 4 https://github.com/mono/xsp/archive/4.4.tar.gz -C    
+    # tar -zxf  xsp.tar.gz 
+    # cd xsp-4.4
+    # ./configure --prefix=/usr/lib/mono/xsp
+	# make 
+	# sudo make install
+    # sudo ln -s /usr/lib/mono/xsp/bin/xsp4  /usr/lib/mono/4.5/xsp4.exe
+    sudo apt-get  install -y mono-xsp
+    sudo  chmod  -R  +w /etc/mono
+    wget http://172.18.112.106/riderRS-171.3655.1246.tar.gz
+    tar -zxf riderRS-171.3655.1246.tar.gz
+}
+
 
 main(){
     echo -e "\033[31m 这个是ubuntu开发环境初始化脚本，请慎重运行！ press ctrl+C to cancel \033[0m"

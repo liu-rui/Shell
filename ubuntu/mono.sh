@@ -18,13 +18,13 @@ echo 'PATH="$JAVA_HOME/bin:$PATH"' >> ~/.bashrc
 echo 'export JRE_HOME="$JAVA_HOME/jre"' >> ~/.bashrc
 echo 'PATH="$JRE_HOME/bin:$PATH"' >> ~/.bashrc
 sh ~/.bashrc
-#配置mono
+#配置mono
 sudo add-apt-repository ppa:alexlarsson/flatpak    
 sudo apt update
 sudo apt install  -y flatpak
 flatpak install --user --from https://download.mono-project.com/repo/monodevelop.flatpakref 
 sudo apt-get  install -y mono-xsp
-sudo  chmod  -R  +w /etc/mono
+sudo  chmod  -R  g+rwx /etc/mono
 wget http://172.18.112.106/riderRS-171.3655.1246.tar.gz
 tar -zxf riderRS-171.3655.1246.tar.gz
 nohup sh /data/software/Rider-171.3655.1246/bin/rider.sh &

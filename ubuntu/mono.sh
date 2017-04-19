@@ -27,3 +27,4 @@ sudo apt-get  install -y mono-xsp
 sudo  chmod  -R  +w /etc/mono
 wget http://172.18.112.106/riderRS-171.3655.1246.tar.gz
 tar -zxf riderRS-171.3655.1246.tar.gz
+sh /data/software/Rider-171.3655.1246/bin/rider.sh

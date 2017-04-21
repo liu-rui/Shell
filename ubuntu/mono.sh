@@ -23,8 +23,14 @@ sudo add-apt-repository ppa:alexlarsson/flatpak
 sudo apt update
 sudo apt install  -y flatpak
 flatpak install --user --from https://download.mono-project.com/repo/monodevelop.flatpakref 
+#安装xsp,使得支持asp.net mvc开发
 sudo apt-get  install -y mono-xsp
+#解决asp.net项目无法打开问题
+sudo  mkdir -p /usr/lib/mono/xbuild/Microsoft/VisualStudio/v14.0/WebApplications
+wget -O /usr/lib/mono/xbuild/Microsoft/VisualStudio/v14.0/WebApplications/Microsoft.WebApplication.targets  --tries 4 
+#解决asp.net运行时出现权限问题
 sudo  chmod  -R  g+rwx /etc/mono
+
 wget http://172.18.112.106/riderRS-171.3655.1246.tar.gz
 tar -zxf riderRS-171.3655.1246.tar.gz
 nohup sh /data/software/Rider-171.3655.1246/bin/rider.sh &

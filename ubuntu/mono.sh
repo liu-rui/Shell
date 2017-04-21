@@ -83,11 +83,10 @@ repair_aspnet(){
     # 解决asp.net运行时出现权限问题
     file="/etc/mono/registry"
     if [ ! -e "$file" ]; then 
-    sudo mkdir -p $file
-    sudo  chmod  -R  go+rwx $file
+        sudo mkdir -p $file
+        sudo  chmod  -R  go+rwx $file
+    fi
 } 
-
-
 
 
 init(){

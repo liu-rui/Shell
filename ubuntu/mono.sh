@@ -48,11 +48,11 @@ install_flatpak(){
 }
 
 install_rider_ide(){
-    file="/data/software/Rider-171.3655.1246/bin/rider.sh"
+    file="/data/software/Rider-171.4089.265/bin/rider.sh"
 
     if [ ! -e "$file" ]; then 
-        wget http://172.18.112.106/riderRS-171.3655.1246.tar.gz
-        tar -zxf riderRS-171.3655.1246.tar.gz
+        wget http://172.18.112.106/riderRS-171.4089.265.tar.gz
+        tar -zxf riderRS-171.4089.265.tar.gz
     else
         echo "跳过，已经安装了Rider"
     fi

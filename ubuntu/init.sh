@@ -3,7 +3,7 @@
 apt_update(){
     sudo apt-get  update
     sudo apt-get -y upgrade
-    sudo apt-get -y install openssh-server git  lrzsz wget
+    sudo apt-get -y install openssh-server git  lrzsz wget bash-completion
 }
 
 init_base_environment(){

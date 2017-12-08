@@ -259,4 +259,4 @@ function main(){
     fi
 }
 
-main
+init_vscode_environment

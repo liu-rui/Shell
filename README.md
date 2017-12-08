@@ -22,5 +22,5 @@ sudo sh init.sh
 #### 1. 使用
 
 ```shell
-curl -s https://raw.githubusercontent.com/liu-rui/Shell/master/ubuntu/ghost.sh | sudo bash
+curl -s https://raw.githubusercontent.com/liu-rui/Shell/master/ubuntu/ghost.sh | bash
 ```
